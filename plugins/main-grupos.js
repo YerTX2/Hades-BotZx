@@ -1,13 +1,13 @@
 import fetch from 'node-fetch'
 
 let handler  = async (m, { conn, usedPrefix, command }) => {
-let img = await (await fetch(`https://i.ibb.co/3N4StyG/file.jpg`)).buffer()
+let img = await (await fetch(`https://i.ibb.co/hRfwwMm/20240704-063012.jpg`)).buffer()
 const more = String.fromCharCode(8206)
 const readMore = more.repeat(4001)
-let txt = `*Hola!, te invito a unirte a los grupos oficiales de del Bot para convivir con la comunidad :D*
+let txt = `☪Hola mortal!, te invito a unirte a los grupos oficiales de ★Hades-Bot ★☪ :)
 
-1- 【 ✯ Ai Hoshino - MD ✰ 】
-*✰* ${group}
+1- 【 👑 Hades-Bot 👑】
+*👑* ${group}
 
 *─ׄ─ׅ─ׄ⭒─ׄ─ׅ─ׄ⭒─ׄ─ׅ─ׄ⭒─ׄ─ׅ─ׄ⭒─ׄ─ׅ─ׄ⭒─ׄ─ׅ─ׄ*
 
