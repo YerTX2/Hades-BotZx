@@ -1,4 +1,4 @@
-<h1 align="center">‧ 🐉GokuSjjRose-BOT🐉 】 ‧
+<h1 align="center">‧ GokuSjjRose-BOT ‧
 </p>
 <p>
         <img src= "https://telegra.ph/file/89fa6a3c8e9cedda6f5ca.jpg">
