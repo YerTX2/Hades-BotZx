@@ -120,6 +120,6 @@ npm start
 <div align="center">
   <h1 align="center">Editor y Propietario de la Bot</h1>
 
-<a href="https://github.com/StarlightsTeam"><img src="<a href="https://ibb.co/gtCvm4D"><img src="https://i.ibb.co/gtCvm4D/avatar-contact.jpg" alt="avatar-contact"
+<a href="https://github.com/StarlightsTeam"><img src="https://i.ibb.co/qRfKp3t/file.jpg" width="300" height="300" alt="おDaniel"/></a>
 
 `© Ai Hoshino - MD / Starlights Team _ By おDaniel & ZxYerSixZx`
