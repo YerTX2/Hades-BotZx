@@ -1,5 +1,5 @@
 {
-  "name": "★ Hades-Bot ★",
+  "name": "Ai Hoshino",
   "version": "5.0.0",
   "description": "Simple WhatsApp Bot Multi Device",
   "main": "index.js",
@@ -18,16 +18,16 @@
     "eslint": "eslint .",
     "eslintfix": "eslint --fix ."
   },
-  "homepage": "https://github.com/YerTX2/Hades-BotZx.git",
+  "homepage": "https://github.com/StarlightsTeam/Ai-Hoshino",
   "author": {
-    "name": "ZxYerSixZx"
+    "name": "StarlightsTeam"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YerTX2/Hades-BotZx.git"
+    "url": "git+https://github.com/StarlightsTeam/Ai-Hoshino.git"
   },
   "bugs": {
-    "url": "https://github.com/YerTX2/Hades-BotZx.git"
+    "url": "https://github.com/StarlightsTeam/Ai-Hoshino/issues"
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
@@ -37,7 +37,7 @@
         "@bochilteam/scraper-sosmed": "^1.0.5",
         "@ibaraki-douji/pixivts": "^2.4.1",
         "awesome-phonenumber": "^3.4.0",
-        "ZxYerSixZx-YerTX2": "github:https://github.com/YerTX2/Hades-BotZx",
+        "@StarlightsTeam/Scraper": "github:StarlightsTeam/StarlightsTeam-Scraper",
         "axios": "^1.1.2",
         "acrcloud": "^1.4.0",
         "form-data": "^4.0.0",
