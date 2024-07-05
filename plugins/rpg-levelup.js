@@ -17,7 +17,7 @@ await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, null, rcanal)
     let before = user.level * 1
     while (canLevelUp(user.level, user.exp, global.multiplier)) user.level++
     if (before !== user.level) {
-       let txt = ` –  *L E V E L U P  -  U S E R*\n\n`
+       let txt = ` –  *L E V E L U P  -  H A D E S*\n\n`
            txt += `┌  ✩  *Nombre* : ${conn.getName(m.sender)}\n`
            txt += `│  ✩  *Nivel Anterior* : ${before}\n`
            txt += `└  ✩  *Nivel Actual* : ${user.level}\n\n`
