@@ -28,7 +28,7 @@ let tags = {
 
 const defaultMenu = {
   before: `
-*︵‿︵‿︵‿︵ ︵‿︵‿︵‿︵︵‿︵‿︵‿*
+*︵‿︵‿︵‿︵ ︵‿︵‿︵‿︵︵‿︵‿*
 
 “ Hola mortal *%name* soy  *⚝Hades⚝*, %greeting ”
 
@@ -36,7 +36,7 @@ const defaultMenu = {
  ▰▱▰▱▰▱▰▱▰▱▰▱▰▱
  》* 🪐Estado* :  Hades Público 
  》*🗡️ Baileys* : Hades multi
- 》*⌛⚝Hades⚝ Despierto * : %muptime
+ 》*⌛ Despierto * : %muptime
  》*👥Mortales* : %totalreg
  ▰▱▰▱▰▱▰▱▰▱▰▱▰▱
 
