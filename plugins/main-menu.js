@@ -21,8 +21,7 @@ let tags = {
   'nsfw': 'NSFW', 
   'cmd': 'DATABASE',
   'owner': 'OWNER', 
-  'audio': 'AUDIOS', 
-  'advanced': 'ADVANCED',
+  'audio': 'AUDIOS', 
 }
 
 const defaultMenu = {
