@@ -92,7 +92,7 @@ npm start
 
 - Si la Bot tiene algún contactame ฅ^•ﻌ•^ฅ
 
-* <a href="https://wa.me/5218139760662"><img alt="WhatsApp" src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white"/></a>
+* <a href="https://wa.me/+51907 376960 "><img alt="WhatsApp" src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white"/></a>
 
 ---------
 
