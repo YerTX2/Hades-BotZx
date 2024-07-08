@@ -105,12 +105,6 @@ npm start
 
 ---------
 
-## Repo Stats 🔭
-
-![github card](https://github.com/YerTX2/Hades-BotZx.vercel.app/api/pin/?username=YerTX2 =Hades-BotZx&theme=chartreuse-dark)
-
----------
-
 ## <img src="https://raw.githubusercontent.com/vilcajoal/vilcajoal/master/assets/octocat-anime.gif" alt="Github" width="44" height="44"> Github Stats
 
 ![github stats](https://github-readme-stats.vercel.app/api?username=StarlightsTeam&show_icons=true&theme=chartreuse-dark)
