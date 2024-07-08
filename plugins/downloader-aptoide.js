@@ -18,9 +18,9 @@ await m.react('✅')
 } catch {
 await m.react('✖️')
 }}
-handler.help = ['aptoide *<búsqueda>*']
+handler.help = ['a2zapk.io *<búsqueda>*']
 handler.tags = ['downloader']
-handler.command = ['aptoide', 'apk']
+handler.command = ['a2zapk.io', 'apk']
 handler.register = true 
 //handler.limit = 5
 export default handler
