@@ -118,7 +118,8 @@ npm start
 
 `© Ai Hoshino - MD / Starlights Team _ By おDaniel & ZxYerSixZx`
 
-             ALOJAMIENTO 
+            
+    ALOJAMIENTO 
     PARA MANTENER TU BOT ACTIVO 24/7.
       
 
