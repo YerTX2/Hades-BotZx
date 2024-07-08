@@ -101,7 +101,7 @@ npm start
 
 - Si quieres probar la Bot antes de instalar
 
-* <a href="https://chat.whatsapp.com/CqdWTXmS702JD31SQzr0Ph"><img alt="Group" src="https://img.shields.io/badge/Group-25D366?style=for-the-badge&logo=whatsapp&logoColor=white"/></a>
+* <a href="https://whatsapp.com/channel/0029Vaj67qQJUM2Wa5Ey3y1v"><img alt="Group" src="https://img.shields.io/badge/Group-25D366?style=for-the-badge&logo=whatsapp&logoColor=white"/></a>
 
 ---------
 
@@ -124,17 +124,3 @@ npm start
 
 `© Ai Hoshino - MD / Starlights Team _ By おDaniel & ZxYerSixZx`
 
-### 🟢 INFINITY HOST
-### □ ACTIVAR EN INFINITY-HOST
-[![blog](https://img.shields.io/badge/Tutorial-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
-](https://youtu.be/c9RCnOV418E?si=kNWog_fSi8wCWX3A)
-
-<a href="https://dashboard.infinitywa.xyz"><img src="https://qu.ax/TPhh.jpg" height="125px"></a>
-
-- **Página:** [`Click aqui`](https://dashboard.infinitywa.xyz)
-- **Dashboard:** [`Aquí`](https://dashboard.infinitywa.xyz)
-- **Panel:** [`Aquí`](https://live.panel-infinitywa.store)
-- **Grupo de WhatsApp:** [`Aquí`](https://chat.whatsapp.com/GQ82mPnSYnm0XL2hLPk7FV)
-- **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029Va4QjH7DeON0ePwzjS1A)
-
-- **Discord:** [`Aqui`](https://discord.com/invite/vgfpe4Nwd8)
