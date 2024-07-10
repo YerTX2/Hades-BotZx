@@ -2,7 +2,7 @@ import fg from 'api-dylux'
 import yts from 'yt-search'
 import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 import fetch from 'node-fetch' 
-let limit = 120
+let limit = 100
 
 let handler = async (m, { conn: star, args, text, isPrems, isOwner, usedPrefix, command }) => {
 if (!args || !args[0]) return star.reply(m.chat, '🚩 Ingresa el enlace del vídeo de YouTube junto al comando.\n\n`Ejemplo:`\n' + `> *${usedPrefix + command}* https://youtu.be/q3jS4f9ItnE`, m, rcanal)
@@ -19,7 +19,7 @@ let size = await yt.video[q].fileSizeH
 let thumbnail = await yt.thumbnail
 
 let img = await (await fetch(`${thumbnail}`)).buffer()
-if (sizeMB.split('MB')[0] >= limit) return star.reply(m.chat, `El archivo pesa mas de ${limit} MB, se canceló la Descarga.`, m, rcanal).then(_ => m.react('✖️'))
+if (sizeMB.split('MB')[0] >= limit) return star.reply(m.chat, `El archivo pesa mas de ${limit} MB, se canceló la Descarga para descargar use el siguiente comando mp4doc.`, m, rcanal).then(_ => m.react('✖️'))
 	let txt = '`乂  Y O U T U B E  -  M P 4`\n\n'
        txt += `	⚔️   *Titulo* : ${title}\n`
        txt += `	⚔️   *Calidad* : ${q}\n`
