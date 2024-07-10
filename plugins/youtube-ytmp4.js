@@ -24,7 +24,7 @@ if (sizeMB.split('MB')[0] >= limit) return star.reply(m.chat, `El archivo pesa m
        txt += `	⚔️   *Titulo* : ${title}\n`
        txt += `	⚔️   *Calidad* : ${q}\n`
        txt += `	⚔️  *Tamaño* : ${sizeMB}\n\n`
-       txt += `> *- ↻ El video se esta enviando espera un momento, soy lenta. . .*`
+       txt += `> *- ↻ El video se esta enviando att HADES BOT. . .*`
 await star.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, null, rcanal)
 await star.sendMessage(m.chat, { video: { url: dl_url }, caption: `${title}`, mimetype: 'video/mp4', fileName: `${title}` + `.mp4`}, {quoted: m })
 await m.react('✅')
