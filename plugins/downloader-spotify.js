@@ -20,7 +20,7 @@ let txt = `*乂  S P O T I F Y  -  D O W N L O A D*\n\n`
     txt += `	✩   *Artista* :${album.metadata.artists}\n`
     txt += `	✩   *Publicado* : ${album.metadata.releaseDate}\n`   
     txt += `	✩   *Tracks totales* : ${album.trackList.length}\n\n`   
-    txt += `*- ↻ Los audios se estan enviando espera un momento, soy lenta. . .*`
+    txt += `*- ↻ se esta se enviando tu musica. . .*`
 await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m)
 for (let i = 0; i < album.trackList.length; i++) {
 await conn.sendFile(m.chat, album.trackList[i].audioBuffer, album.trackList[i].metadata.name + '.mp3', null, m, false, { mimetype: 'audio/mpeg', asDocument: user.useDocument })
