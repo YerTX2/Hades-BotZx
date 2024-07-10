@@ -12,7 +12,7 @@ global.videoListXXX.splice(0, global.videoListXXX.length);
 }
 const res = await xnxxsearch(text);
 const json = res.result;
-let cap = `🔍 𝙍𝙀𝙎𝙐𝙇𝙏𝘼𝘿𝙊𝙎 𝘿𝙀 𝙇𝘼 𝘽𝙐𝙎𝙌𝙐𝙀𝘿𝘼 : ${text.toUpperCase()}\n\n••••••••••••••••••••••••••••••••••••`;
+let cap = `🔍 toma tu video pajero : ${text.toUpperCase()}\n\n••••••••••••••••••••••••••••••••••••`;
 let count = 1;
 for (const v of json) {
 const linkXXX = v.link;
