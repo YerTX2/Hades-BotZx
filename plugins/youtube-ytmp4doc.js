@@ -2,12 +2,12 @@ import fg from 'api-dylux'
 import yts from 'yt-search'
 import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 import fetch from 'node-fetch' 
-let limit = 800
+let limit = 1000
 
 let handler = async (m, { conn: star, args, text, isPrems, isOwner, usedPrefix, command }) => {
 if (!args || !args[0]) return star.reply(m.chat, '🚩 Ingresa bien el enlace del vídeo de YouTube junto al comando.\n\n`Ejemplo:`\n' + `> *${usedPrefix + command}* https://youtu.be/q3jS4f9ItnE`, m, rcanal)
 if (!args[0].match(/youtu/gi)) return star.reply(m.chat, `Verifica que el enlace sea de YouTube.`, m, rcanal).then(_ => m.react('✖️'))
-let q = args[1] || '360p'
+let q = args[1] || '480p'
 
 await m.react('🕓')
 try {
@@ -25,7 +25,7 @@ if (size.split('GB')[0] >= limit) return star.reply(m.chat, `El archivo pesa mas
        txt += `	⚔️   *Titulo* : ${title}\n`
        txt += `	⚔️   *Calidad* : ${q}\n`
        txt += `	⚔️   *Tamaño* : ${size}\n\n`
-       txt += `> *- ↻ El video se esta enviando espera un momento, soy lenta. . .*`
+       txt += `> *- ↻ El video se esta enviando. . .*`
 await star.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, null, rcanal)
 await star.sendMessage(m.chat, { document: { url: dl_url }, caption: '', mimetype: 'video/mp4', fileName: `${title}` + `.mp4`}, {quoted: m })
 await m.react('✅')
