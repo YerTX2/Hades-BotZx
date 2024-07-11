@@ -17,7 +17,7 @@ let tags = {
   'downloader': 'DOWNLOAD',
   'tools': 'TOOLS',
   'fun': 'FUN',
-  'comandos': '+18', 
+  'comandos+18': '+18', 
   'cmd': 'DATABASE',
   'owner': 'OWNER', 
   'audio': 'AUDIOS', 
