@@ -52,7 +52,7 @@ const defaultMenu = {
     body: '✩│%cmd %islimit %isPremium\n',
   footer: '│╰»»————--　★　————-««···\n╰───────────═┅═──────────\n',
   
-+18 n',╭───═[ `MENÚ +18` ]═────⋆
+\t\t\t n',╭───═[ `MENÚ +18` ]═────⋆
 │»»————--　★　————-««···
 ✩│.xnxxsearch 
 ✩│.xnxxdl (enlace) 
