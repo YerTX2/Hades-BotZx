@@ -5,7 +5,7 @@ if (!text) return conn.reply(m.chat, `*• Ingresa el nombre de la aplicación q
 await m.react('🕓')
 try {
 let { name, packname, update, size, thumbnail, dl_url } = await Starlights.aptoide(text)
-if (size.includes('GB') || size.replace(' MB', '') > 800) { return await m.reply('El archivo pesa mas de 800 MB, se canceló la Descarga.')}
+if (size.includes('GB') || size.replace(' MB', '') > 1400) { return await m.reply('El archivo pesa mas de 1400 MB, se canceló la Descarga.')}
 let txt = `*乂  A P T O I D E  -  D O W N L O A D*\n\n`
     txt += `	✩   *Nombre* : ${name}\n`
     txt += `	✩   *Package* : ${packname}\n`
