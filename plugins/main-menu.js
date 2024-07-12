@@ -54,8 +54,7 @@ const defaultMenu = {
 ╰───────────═┅═──────────
 %readmore
 *─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
-
-\t\t\t*★*
+\t\t\t*★*
 `.trimStart(),
   header: '╭───═[ `MENÚ %category` ]═────⋆\n│»»————--　★　————-««···',
     body: '✩│%cmd %islimit %isPremium\n',
