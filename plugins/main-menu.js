@@ -55,7 +55,7 @@ const defaultMenu = {
 %readmore
 *─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
-\t\t\t*★ M E N Ú-HADES ★ *
+\t\t\t*★*
 `.trimStart(),
   header: '╭───═[ `MENÚ %category` ]═────⋆\n│»»————--　★　————-««···',
     body: '✩│%cmd %islimit %isPremium\n',
