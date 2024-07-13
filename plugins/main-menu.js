@@ -49,7 +49,6 @@ const defaultMenu = {
 │»»————--　★　————-««···
 ⚔️│.xnxxsearch 
 ⚔️│.xnxxdl (enlace) 
-⚔️│.pornotetas
 ⚔️│ .pornhubsearch 
 │╰»»————--　★　————-««···
 ╰───────────═┅═──────────
