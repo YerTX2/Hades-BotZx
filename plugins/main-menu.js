@@ -4,7 +4,6 @@ const handler = async (m, {conn}) => {
 handler.command = /^(.menu)$/i;
 export default handler;
 handler.group = true
-
 global.menu= `
 
 
