@@ -1,3 +1,15 @@
+const handler = async (m, {conn}) => {
+  m.reply(global.main.menu);
+};
+handler.command = /^(.main.menu)$/i;
+export default handler;
+handler.group = true
+
+global.main.menu= `
+
+
+
+
 import { promises } from 'fs'
 import { join } from 'path'
 import fetch from 'node-fetch'
