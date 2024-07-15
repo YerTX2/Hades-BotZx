@@ -57,7 +57,9 @@ const defaultMenu = {
 ⚔️│.➺ _.Vs6_
 ⚔️│.➺ _.Vs12_
 │╰»»————--　★　————-««···
-╰───────────═┅═────────── ╭───═[ MENÚ DOWNLOAD ]═────⋆
+╰───────────═┅═────────── 
+
+╭───═[ MENÚ DOWNLOAD ]═────⋆
 │»»————--　⚔️　————-««···
 ⚔️│.aptoide *<búsqueda>*
 ⚔️│.fb *<link fb>*
@@ -74,16 +76,6 @@ const defaultMenu = {
 ⚔️|.spotify *<link>*
 │ ╰»»————--　⚔️　————-««···
 ╰───────────═┅═──────────
-
-%readmore
-*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
-\t\t\t*★*
-`.trimStart(),
-  header: '╭───═[ `MENÚ %category` ]═────⋆\n│»»————--　⚔️　————-««···',
-    body: '⚔️│%cmd %islimit %isPremium\n',
-  footer: '│╰»»————--　⚔️　————-««···\n╰───────────═┅═──────────\n',
-  
-after: `> 🚩 ${textbot}`,
 }
 
 let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
