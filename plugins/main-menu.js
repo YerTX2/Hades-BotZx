@@ -1,18 +1,11 @@
 const handler = async (m, {conn}) => {
-  m.reply(global.menu);
+  m.reply(global.main-menu);
 };
-handler.command = /^(.menu)$/i;
+handler.command = /^(.main-menu)$/i;
 export default handler;
 handler.group = true
-global.menu= `
+global.main-menu= `
 
-
-
-
-import { promises } from 'fs'
-import { join } from 'path'
-import fetch from 'node-fetch'
-import { xpRange } from '../lib/levelling.js'
 
 const defaultMenu = {
   before: `
