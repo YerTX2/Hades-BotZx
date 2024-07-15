@@ -3,23 +3,6 @@ import { join } from 'path'
 import fetch from 'node-fetch'
 import { xpRange } from '../lib/levelling.js'
 
-let tags = {
-  'main': 'INFO',
-  'search': 'SEARCH',
-  'serbot': 'SUB BOTS',
-  'rpg': 'RPG',
-  'rg': 'REGISTRO',
-  'img': 'IMAGE',
-  'group': 'GROUPS',
-// 'logo': 'MAKER',
-  'nable': 'ON / OFF', 
-  'downloader': 'DOWNLOAD',
-  'tools': 'TOOLS',
-  'cmd': 'DATABASE',
-  'owner': 'OWNER', 
-  
-}
-
 const defaultMenu = {
   before: `
 *︵‿︵‿︵‿︵ ︵‿︵‿︵‿︵︵‿︵‿*
@@ -43,8 +26,9 @@ const defaultMenu = {
  》 *🌠 XP* : %totalexp
  ⬑ ▰▱▰▱▰▱▰▱▰▱▰▱▰▱
 ╰───────────═┅═──────────
-     *★ M E N Ú-HADES ★ *
+    *★ M E N Ú-HADES ★ *
 
+let menu +18
 ╭───═[ MENU🔞]═────⋆
 │»»————--　★　————-««···
 ⚔️│.xnxxsearch 
