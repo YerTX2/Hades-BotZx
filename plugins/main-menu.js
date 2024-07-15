@@ -12,8 +12,7 @@ let tags = {
   'img': 'IMAGE',
   'group': 'GROUPS',
 // 'logo': 'MAKER',
-  'nable': 'ON / OFF', 
-  'downloader': 'DOWNLOAD',
+  'nable': 'ON / OFF', 
   'tools': 'TOOLS',
   'cmd': 'DATABASE',
   'owner': 'OWNER', 
@@ -44,7 +43,6 @@ const defaultMenu = {
  ⬑ ▰▱▰▱▰▱▰▱▰▱▰▱▰▱
 ╰───────────═┅═──────────
      *★ M E N Ú-HADES ★ *
-
 ╭───═[ MENU🔞]═────⋆
 │»»————--　★　————-««···
 ⚔️│.xnxxsearch 
@@ -59,8 +57,7 @@ const defaultMenu = {
 ⚔️│.➺ _.Vs6_
 ⚔️│.➺ _.Vs12_
 │╰»»————--　★　————-««···
-╰───────────═┅═──────────
-╭───═[ MENÚ DOWNLOAD ]═────⋆
+╰───────────═┅═────────── ╭───═[ MENÚ DOWNLOAD ]═────⋆
 │»»————--　⚔️　————-««···
 ⚔️│.aptoide *<búsqueda>*
 ⚔️│.fb *<link fb>*
