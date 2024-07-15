@@ -21,12 +21,12 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
   user.regTime = + new Date
   user.registered = true
   let sn = createHash('md5').update(m.sender).digest('hex')
-  let img = await (await fetch(`https://telegra.ph/file/92577fa832d54bd750f16.mp4`)).buffer()
+  let img = await (await fetch(`https://telegra.ph/file/c58beffa8b15a99904a97.jpg`)).buffer()
   let txt = ` –  *R E G I S T R O  - HADES *\n\n`
       txt += `┌  ⚔️  *Nombre* : ${name}\n`
       txt += `│  ⚔️ *Edad* : ${age} años\n`
       txt += `│  ⚔️ *Numero de serie*\n`
-      txt += `└  ⚔️  ${sn}`
+      txt += `└    ${sn}`
 await conn.sendAi(m.chat, botname, textbot, txt, img, img, canal, m)
 await m.react('✅')
 }
