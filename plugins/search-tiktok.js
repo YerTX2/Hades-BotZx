@@ -1,37 +1,68 @@
-import axios from 'axios'
-import Starlights from '@StarlightsTeam/Scraper'
+import axios from 'axios';
+import { proto, generateWAMessageFromContent, generateWAMessageContent } from "@whiskeysockets/baileys";
 
-let handler = async (m, { conn, usedPrefix, command, text, args }) => {
-  if (!text) return conn.reply(m.chat, `🚩 Ingresa el nombre video que deseas buscar en TikTok.\n\nEjemplo:\n> *${usedPrefix + command}* Ai Hoshino Edit`, m, rcanal)
-  
-  await m.react('🕓')
-  let img = await (await axios.get('https://i.ibb.co/kyTcqt9/file.jpg', { responseType: 'arraybuffer' })).data
+let handler = async (msg, { conn, text, usedPrefix, command }) => {
+  if (!text) {
+    return conn.reply(msg.chat, "🍭 Ingresa el texto de lo que quieres buscar en TikTok", msg);
+  }
+
+  async function generateVideoMessage(url) {
+    const { videoMessage } = await generateWAMessageContent(
+      { 'video': { 'url': url } },
+      { 'upload': conn.waUploadToServer }
+    );
+    return videoMessage;
+  }
+
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
 
   try {
-    let data = await Starlights.tiktokSearch(text)
+    let results = [];
+    let { data } = await axios.get(`https://apis-starlights-team.koyeb.app/starlight/tiktoksearch?text=${text}`);
+    let videos = data.data;
+    shuffleArray(videos);
+    let topVideos = videos.splice(0, 7);
 
-    if (data && data.length > 0) {
-      let txt = `*乂  T I K T O K  -  S E A R C H*`
-      for (let i = 0; i < (50 <= data.length ? 50 : data.length); i++) {
-        let video = data[i]
-        txt += `\n\n`
-        txt += `  *» Nro* : ${i + 1}\n`
-        txt += `  *» Título* : ${video.title}\n`
-        txt += `  *» Autor* : ${video.author}\n`
-        txt += `  *» Url* : ${video.url}`
-      }
-      await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, null, rcanal)
-      await m.react('✅')
-    } else {
-      await conn.react('✖️')
+    for (let video of topVideos) {
+      results.push({
+        'body': proto.Message.InteractiveMessage.Body.fromObject({ 'text': null }),
+        'footer': proto.Message.InteractiveMessage.Footer.fromObject({ 'text': author }),
+        'header': proto.Message.InteractiveMessage.Header.fromObject({
+          'title': video.title,
+          'hasMediaAttachment': true,
+          'videoMessage': await generateVideoMessage(video.nowm)
+        }),
+        'nativeFlowMessage': proto.Message.InteractiveMessage.NativeFlowMessage.fromObject({ 'buttons': [] })
+      });
     }
-  } catch {
-    await m.react('✖️')
-  }
-}
-handler.tags = ['search']
-handler.help = ['tiktoksearch *<búsqueda>*']
-handler.command = ['tiktoksearch', 'tiktoks']
-handler.register = true
 
-export default handler
+    const responseMessage = generateWAMessageFromContent(msg.chat, {
+      'viewOnceMessage': {
+        'message': {
+          'messageContextInfo': { 'deviceListMetadata': {}, 'deviceListMetadataVersion': 2 },
+          'interactiveMessage': proto.Message.InteractiveMessage.fromObject({
+            'body': proto.Message.InteractiveMessage.Body.create({ 'text': `🚩 Resultado de: ${text}` }),
+            'footer': proto.Message.InteractiveMessage.Footer.create({ 'text': "TikTok - Search" }),
+            'header': proto.Message.InteractiveMessage.Header.create({ 'hasMediaAttachment': false }),
+            'carouselMessage': proto.Message.InteractiveMessage.CarouselMessage.fromObject({ 'cards': results })
+          })
+        }
+      }
+    }, { 'quoted': msg });
+
+    await conn.relayMessage(msg.chat, responseMessage.message, { 'messageId': responseMessage.key.id });
+  } catch {
+    await msg.react('✖️');
+  }
+};
+
+handler.help = ["tiktoksearch *<txt>*"];
+handler.tags = ["search"];
+handler.command = ["tiktoksearch", "tts", "tiktoks"];
+
+export default handler;
