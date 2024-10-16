@@ -18,16 +18,16 @@
     "eslint": "eslint .",
     "eslintfix": "eslint --fix ."
   },
-  "homepage": "https://github.com/StarlightsTeam/Ai-Hoshino",
+  "homepage": "https://github.com/YerTX2/Hades-BotZx",
   "author": {
     "name": "StarlightsTeam"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/StarlightsTeam/Ai-Hoshino.git"
+    "url": "git+https://https://github.com/YerTX2/Hades-BotZx.git"
   },
   "bugs": {
-    "url": "https://github.com/StarlightsTeam/Ai-Hoshino/issues"
+    "url": "https://github.com/YerTX2/Hades-BotZx/issues"
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
