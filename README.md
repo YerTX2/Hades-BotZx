@@ -1,4 +1,4 @@
-<h1 align="center"> ☪★Hades-Bot★☪
+<h1 align="center"> ☪★Tanjiro-Bot★☪
 
 </p>
 <p>
