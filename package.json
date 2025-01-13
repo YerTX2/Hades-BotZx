@@ -36,7 +36,8 @@
         "@bochilteam/scraper": "^4.2.4",
         "@bochilteam/scraper-sosmed": "^1.0.5",
         "@ibaraki-douji/pixivts": "^2.4.1",
-        "awesome-phonenumber": "^3.4.0",
+        "awesome-phonenumber": "^3.4.0"
+        "google-libphonenumber": "latest",   
         "@StarlightsTeam/Scraper": "github:StarlightsTeam/StarlightsTeam-Scraper",
         "axios": "^1.1.2",
         "acrcloud": "^1.4.0",
