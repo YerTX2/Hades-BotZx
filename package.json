@@ -1,5 +1,5 @@
 {
-  "name": "Ai Hoshino",
+  "name": "Hades Bot",
   "version": "5.0.0",
   "description": "Simple WhatsApp Bot Multi Device",
   "main": "index.js",
@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/YerTX2/Hades-BotZx",
   "author": {
-    "name": "StarlightsTeam"
+    "name": "YerTX2"
   },
   "repository": {
     "type": "git",
