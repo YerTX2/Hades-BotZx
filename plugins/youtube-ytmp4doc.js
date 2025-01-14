@@ -1,5 +1,5 @@
 //CÓDIGO MODIFICADO POR DV.YER🇦🇱 NO SEAS CABRO NO QUITES LOS DERECHOS ↩️
-//Código de (SonGoku) Bot 
+//Código de (hades) Bot 
 
 
 import fetch from 'node-fetch';
