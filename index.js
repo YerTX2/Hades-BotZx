@@ -1,4 +1,4 @@
-console.log('✯ Iniciando ✯')
+console.log('se esta iniciando Hades Bot🔥')
 
 import { join, dirname } from 'path'
 import { createRequire } from 'module';
