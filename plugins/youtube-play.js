@@ -14,13 +14,13 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
   }
 
   const body = `
-🎥 *YσuTυbє Plαy*  
-━━━━━━━━━━━━━━━━━━━━  
-📌 *🎬 Tιтlє:* ${videoInfo.title}  
-👀 *💯 Vιѕtαѕ:* ${videoInfo.views.toLocaleString()}  
-⏱️ *⏳ Dυrαcισn:* ${videoInfo.timestamp}  
-📅 *🕒 Pυblιcαdσ:* ${videoInfo.ago}  
-🔗 *🌐 URL:* ${videoInfo.url}  
+╭━━━❰ *🎥 YouTube Play* ❱━━━╮
+┣ 📌 *Título:* ${videoInfo.title}
+┣ 👀 *Vistas:* ${videoInfo.views.toLocaleString()}
+┣ ⏱️ *Duración:* ${videoInfo.timestamp}
+┣ 📅 *Publicado:* ${videoInfo.ago}
+┣ 🔗 *URL:* ${videoInfo.url}
+╰━━━━━━━━━━━━━━━━━━━━━╯
   
 Elige una de las opciones para descargar:
 🎵 *Audio* o 📽️ *Video*
@@ -31,10 +31,9 @@ Elige una de las opciones para descargar:
     {
       image: { url: videoInfo.thumbnail },
       caption: body,
-      footer: `© Bot | 🐉SonGoku🐉`,
+      footer: `| Hades Bot🔥`,
       buttons: [
         { buttonId: `.ytmp3 ${videoInfo.url}`, buttonText: { displayText: '🎵 Audio' } },
-        { buttonId: `.ytmp6 ${videoInfo.url}`, buttonText: { displayText: '📽️ Video' } },
         { buttonId: `.ytmp4doc ${videoInfo.url}`, buttonText: { displayText: '📼 Video Doc' } },
       ],
       viewOnce: true,
@@ -48,6 +47,4 @@ Elige una de las opciones para descargar:
 handler.command = ['play', 'playvid', 'play2'];
 handler.tags = ['downloader']
 handler.group = true
-handler.limit = 6
-
 export default handler; 
