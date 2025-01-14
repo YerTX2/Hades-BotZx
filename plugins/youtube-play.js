@@ -26,6 +26,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 📽️ *Video:* \`${usedPrefix}ytmp4doc ${videoInfo.url}\`
   `;
 
+  // Enviar mensaje con los detalles del video
   await conn.sendMessage(
     m.chat,
     {
@@ -35,7 +36,12 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     { quoted: m }
   );
 
-  m.react('✅'); // Reacción de éxito
+  // Imprimir en la consola los comandos y el enlace del video
+  console.log(`Comando para audio: ${usedPrefix}ytmp3 ${videoInfo.url}`);
+  console.log(`Comando para video: ${usedPrefix}ytmp4doc ${videoInfo.url}`);
+
+  // Reacción de éxito
+  m.react('✅');
 };
 
 // Definimos los comandos para este handler
