@@ -5,7 +5,6 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     throw `❗ Por favor ingresa un texto para buscar.\nEjemplo: ${usedPrefix + command} Nombre del video`;
   }
 
-
   const search = await yts(text);
   const videoInfo = search.all?.[0];
 
@@ -22,8 +21,9 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 ┣ 🔗 *URL:* ${videoInfo.url}
 ╰━━━━━━━━━━━━━━━━━━━━━╯
   
-Elige una de las opciones para descargar:
-🎵 *Audio* o 📽️ *Video*
+👉 Usa uno de los siguientes comandos para descargar:
+🎵 *Audio:* \`${usedPrefix}ytmp3 ${videoInfo.url}\`  
+📽️ *Video:* \`${usedPrefix}ytmp4doc ${videoInfo.url}\`
   `;
 
   await conn.sendMessage(
@@ -31,20 +31,16 @@ Elige una de las opciones para descargar:
     {
       image: { url: videoInfo.thumbnail },
       caption: body,
-      footer: `| Hades Bot🔥`,
-      buttons: [
-        { buttonId: `.ytmp3 ${videoInfo.url}`, buttonText: { displayText: '🎵 Audio' } },
-        { buttonId: `.ytmp4doc ${videoInfo.url}`, buttonText: { displayText: '📼 Video Doc' } },
-      ],
-      viewOnce: true,
-      headerType: 4,
     },
     { quoted: m }
   );
+
   m.react('✅'); // Reacción de éxito
 };
 
+// Definimos los comandos para este handler
 handler.command = ['play', 'playvid', 'play2'];
-handler.tags = ['downloader']
-handler.group = true
-export default handler; 
+handler.tags = ['downloader'];
+handler.group = true;
+
+export default handler;
