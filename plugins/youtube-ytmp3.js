@@ -15,6 +15,6 @@ console.error(error)
 }}
 
 
-HS.command = /^(.ytmp3)$/i
+HS.command = /^(ytmp6)$/i
 
 export default HS
