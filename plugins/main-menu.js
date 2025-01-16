@@ -39,7 +39,7 @@ const defaultMenu = {
 let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
   try {
     // Ruta de la música en la carpeta local
-    const musicPath = join(__dirname, '../media/menu-music.mp3');
+    const musicPath = join(__dirname, 'musica/menu-music.mp3');
     
     // Verificar si el archivo existe
     const fileExists = await fs.stat(musicPath).then(() => true).catch(() => false);
