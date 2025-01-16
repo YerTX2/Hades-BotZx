@@ -1,124 +1,110 @@
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { xpRange } from '../lib/levelling.js';
+import { promises } from 'fs'
+import { join } from 'path'
+import fetch from 'node-fetch'
+import { xpRange } from '../lib/levelling.js'
 
-const tags = {
-  main: '💖 INFO',
-  search: '🔍 BÚSQUEDA',
-  serbot: '🤖 SUB BOTS',
-  rpg: '🎮 RPG',
-  rg: '📝 REGISTRO',
-  img: '🖼️ IMÁGENES',
-  group: '👥 GRUPOS',
-  nable: '⚙️ CONFIG',
-  downloader: '⬇️ DESCARGAS',
-  tools: '🔧 HERRAMIENTAS',
-  cmd: '📂 BASE DE DATOS',
-  owner: '👑 ADMINISTRADOR',
-};
+let tags = {
+  'main': 'Información',
+  'search': 'Búsquedas',
+  'serbot': 'Sub-Bots',
+  'rpg': 'RPG',
+  'rg': 'Registro',
+  'img': 'Imágenes',
+  'group': 'Grupos',
+  'nable': 'Activar/Desactivar',
+  'downloader': 'Descargas',
+  'tools': 'Herramientas',
+  'cmd': 'Base de datos',
+  'owner': 'Propietario',
+}
 
 const defaultMenu = {
   before: `
-*•──────────────•*
-👋 Hola, *%name*!  
-Soy tu asistente, *Atenea*. 💕  
-%greeting  
+╭───〔 *💖 Hola, %name 💖* 〕───╮
+🌟 *Soy Hades* (versión femenina) y estoy aquí para ayudarte, %greeting.
+╰────────────────────╯
+
+*🔮 Estado del sistema:*
+  ✨ Público: Habilitado
+  🕒 Tiempo activo: %muptime
+  📌 Usuarios registrados: %totalreg
+
+💡 *Datos de usuario:*
+  👤 Nombre: %name
+  🌟 Nivel: %level
+  🎯 XP Total: %totalexp
+
+╰────────────────────╯
 %readmore
-
-╭═══ *TU PERFIL* ═══╮
-👤 *Usuario*: %name  
-✨ *Nivel*: %level  
-🎯 *XP*: %totalexp  
-🎀 *Límite*: %limit  
-╰══════════════════╯
+*📋 Menú principal:*
 `.trimStart(),
-  header: '\n╭── ❀ %category ❀ ──╮\n',
-  body: '  ◦ %cmd %islimit %isPremium\n',
-  footer: '╰──────────────────╯\n',
-  after: `\n🌸 Gracias por usar *Atenea*. 🌸\n¡Espero haberte ayudado!`,
-};
+  header: '╭─〔 %category 〕───\n│',
+  body: '🎀 %cmd %islimit %isPremium\n',
+  footer: '╰─────────────\n',
+  after: `¡Espero que encuentres todo lo que buscas! 🌸`,
+}
 
-const handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
+let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
   try {
-    // Ruta del archivo de música
-    const musicPath = join(__dirname, 'musica/menu-music.mp3');
-    const fileExists = await fs.stat(musicPath).then(() => true).catch(() => false);
+    let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
+    let { exp, limit, level } = global.db.data.users[m.sender]
+    let { min, xp, max } = xpRange(level, global.multiplier)
+    let name = await conn.getName(m.sender)
+    let d = new Date(new Date + 3600000)
+    let locale = 'es'
+    let greeting = obtenerSaludo(d.getHours())
+    let totalreg = Object.keys(global.db.data.users).length
 
-    if (!fileExists) {
-      console.error('Archivo de música no encontrado:', musicPath);
-      throw new Error('Archivo de música no encontrado.');
-    }
-
-    // Enviar música antes del menú
-    await conn.sendFile(m.chat, musicPath, 'menu-music.mp3', null, m);
-
-    // Datos del usuario
-    const user = global.db.data.users[m.sender] || {};
-    const { exp = 0, limit = 0, level = 0 } = user;
-    const { min, xp, max } = xpRange(level, global.multiplier);
-    const name = await conn.getName(m.sender);
-
-    // Variables para el saludo
-    const d = new Date(new Date() + 3600000);
-    const locale = 'es';
-    const greeting = getGreeting(d.getHours());
-    const week = d.toLocaleDateString(locale, { weekday: 'long' });
-    const date = d.toLocaleDateString(locale, {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-    });
-    const totalreg = Object.keys(global.db.data.users).length;
-
-    // Generar texto del menú
-    let text = defaultMenu.before
-      .replace(/%name/g, name)
-      .replace(/%limit/g, limit)
-      .replace(/%level/g, level)
-      .replace(/%totalexp/g, exp)
-      .replace(/%greeting/g, greeting);
-
-    text += Object.keys(tags)
-      .map((tag) => {
-        const categoryHeader = defaultMenu.header.replace(/%category/g, tags[tag]);
-        const categoryBody = Object.values(global.plugins)
-          .filter((plugin) => plugin.tags && plugin.tags.includes(tag))
-          .map((plugin) =>
-            plugin.help
-              .map((cmd) =>
-                defaultMenu.body
-                  .replace(/%cmd/g, cmd)
-                  .replace(/%islimit/g, plugin.limit ? '🌟' : '')
-                  .replace(/%isPremium/g, plugin.premium ? '👑' : '')
-              )
-              .join('\n')
-          )
-          .join('\n');
-
-        return categoryHeader + categoryBody + defaultMenu.footer;
-      })
-      .join('\n');
-
-    text += defaultMenu.after;
-
-    // Enviar el menú
-    await conn.reply(m.chat, text.trim(), m);
+    // Generar menú
+    let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(plugin => {
+      return {
+        help: Array.isArray(plugin.tags) ? plugin.help : [plugin.help],
+        tags: Array.isArray(plugin.tags) ? plugin.tags : [plugin.tags],
+        prefix: 'customPrefix' in plugin,
+        limit: plugin.limit,
+        premium: plugin.premium,
+      }
+    })
+    
+    let text = generarMenu(defaultMenu, tags, help, {
+      _p, name, greeting, totalreg, level, limit, exp, min, xp, max
+    })
+    
+    // Enviar respuesta
+    let img = 'https://telegra.ph/file/d535430793cd5cb177c58.jpg' // Cambiar a imagen femenina
+    await conn.sendFile(m.chat, img, 'menu.jpg', text, m)
   } catch (e) {
-    conn.reply(m.chat, '❎ Ups, hubo un problema al mostrar el menú.', m);
-    console.error('Error al mostrar el menú:', e);
+    conn.reply(m.chat, '❎ Lo siento, ocurrió un error al generar el menú.', m)
+    throw e
   }
-};
+}
 
-handler.help = ['menu'];
-handler.tags = ['main'];
-handler.command = ['menu', 'help', 'menú'];
-handler.register = true;
-export default handler;
+handler.help = ['menu']
+handler.tags = ['main']
+handler.command = ['menu', 'menú', 'help']
+handler.register = true
+export default handler
 
-// Función para obtener el saludo según la hora
-function getGreeting(hour) {
-  if (hour >= 5 && hour < 12) return '¡Que tengas una linda mañana! 🌅';
-  if (hour >= 12 && hour < 18) return '¡Disfruta tu tarde! 🌞';
-  if (hour >= 18 && hour < 22) return '¡Relájate esta noche! 🌙';
-  return '¡Descansa y sueña bonito! 🌌';
+// Funciones auxiliares
+function generarMenu(defaultMenu, tags, help, replace) {
+  return [
+    defaultMenu.before,
+    ...Object.keys(tags).map(tag => {
+      return defaultMenu.header.replace(/%category/g, tags[tag]) + '\n' + help.filter(menu => menu.tags.includes(tag)).map(menu => {
+        return menu.help.map(cmd => {
+          return defaultMenu.body
+            .replace(/%cmd/g, menu.prefix ? cmd : `${replace._p}${cmd}`)
+            .replace(/%islimit/g, menu.limit ? '🔒' : '')
+            .replace(/%isPremium/g, menu.premium ? '💎' : '')
+        }).join('\n')
+      }).join('\n') + defaultMenu.footer
+    }),
+    defaultMenu.after
+  ].join('\n').replace(/%(\w+)/g, (_, key) => replace[key] || '')
+}
+
+function obtenerSaludo(hora) {
+  if (hora >= 6 && hora < 12) return 'buenos días 🌞'
+  if (hora >= 12 && hora < 18) return 'buenas tardes 🌅'
+  return 'buenas noches 🌙'
 }
