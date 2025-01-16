@@ -3,36 +3,39 @@ import { join } from 'path';
 import { xpRange } from '../lib/levelling.js';
 
 const tags = {
-  main: 'INFO',
-  search: 'SEARCH',
-  serbot: 'SUB BOTS',
-  rpg: 'RPG',
-  rg: 'REGISTRO',
-  img: 'IMAGE',
-  group: 'GROUPS',
-  nable: 'ON / OFF',
-  downloader: 'DOWNLOAD',
-  tools: 'TOOLS',
-  cmd: 'DATABASE',
-  owner: 'OWNER',
+  main: '💖 INFO',
+  search: '🔍 BÚSQUEDA',
+  serbot: '🤖 SUB BOTS',
+  rpg: '🎮 RPG',
+  rg: '📝 REGISTRO',
+  img: '🖼️ IMÁGENES',
+  group: '👥 GRUPOS',
+  nable: '⚙️ CONFIG',
+  downloader: '⬇️ DESCARGAS',
+  tools: '🔧 HERRAMIENTAS',
+  cmd: '📂 BASE DE DATOS',
+  owner: '👑 ADMINISTRADOR',
 };
 
 const defaultMenu = {
   before: `
-*︵‿︵‿︵‿︵ ︵‿︵‿︵‿︵︵‿︵‿*
-“ Hola mortal *%name* soy  *⚝Hades⚝*, %greeting ”
+*•──────────────•*
+👋 Hola, *%name*!  
+Soy tu asistente, *Atenea*. 💕  
+%greeting  
 %readmore
-╭═══ INFO DE USER ═══╮
-👥 *Mortal*: %name
-🌌 *Cosmos*: %limit
-🌀 *Nivel*: %level
-🌠 *XP*: %totalexp
+
+╭═══ *TU PERFIL* ═══╮
+👤 *Usuario*: %name  
+✨ *Nivel*: %level  
+🎯 *XP*: %totalexp  
+🎀 *Límite*: %limit  
 ╰══════════════════╯
 `.trimStart(),
-  header: '╭── MENU %category ──╮\n',
-  body: '⚔️ %cmd %islimit %isPremium\n',
-  footer: '╰─────────────────────╯\n',
-  after: 'Gracias por usar ⚝Hades⚝!',
+  header: '\n╭── ❀ %category ❀ ──╮\n',
+  body: '  ◦ %cmd %islimit %isPremium\n',
+  footer: '╰──────────────────╯\n',
+  after: `\n🌸 Gracias por usar *Atenea*. 🌸\n¡Espero haberte ayudado!`,
 };
 
 const handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
@@ -85,7 +88,7 @@ const handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
               .map((cmd) =>
                 defaultMenu.body
                   .replace(/%cmd/g, cmd)
-                  .replace(/%islimit/g, plugin.limit ? '⭐' : '')
+                  .replace(/%islimit/g, plugin.limit ? '🌟' : '')
                   .replace(/%isPremium/g, plugin.premium ? '👑' : '')
               )
               .join('\n')
@@ -101,7 +104,7 @@ const handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     // Enviar el menú
     await conn.reply(m.chat, text.trim(), m);
   } catch (e) {
-    conn.reply(m.chat, '❎ Error al mostrar el menú.', m);
+    conn.reply(m.chat, '❎ Ups, hubo un problema al mostrar el menú.', m);
     console.error('Error al mostrar el menú:', e);
   }
 };
@@ -114,8 +117,8 @@ export default handler;
 
 // Función para obtener el saludo según la hora
 function getGreeting(hour) {
-  if (hour >= 5 && hour < 12) return 'una hermosa mañana 🌅';
-  if (hour >= 12 && hour < 18) return 'una bella tarde 🌞';
-  if (hour >= 18 && hour < 22) return 'una tranquila noche 🌙';
-  return 'dulces sueños 🌌';
+  if (hour >= 5 && hour < 12) return '¡Que tengas una linda mañana! 🌅';
+  if (hour >= 12 && hour < 18) return '¡Disfruta tu tarde! 🌞';
+  if (hour >= 18 && hour < 22) return '¡Relájate esta noche! 🌙';
+  return '¡Descansa y sueña bonito! 🌌';
 }
